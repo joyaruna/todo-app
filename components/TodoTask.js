@@ -41,9 +41,9 @@ const styles = StyleSheet.create({
     },
     taskUncompletedTitle: {
         textDecorationLine: 'line-through',
-        opacity: 0.5,
+        opacity: 0.4,
         fontSize: 16,
-        fontWeight: '600',
+        fontWeight: '400',
         fontStyle: 'italic',
     },
     deleteButton: {

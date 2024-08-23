@@ -21,7 +21,7 @@ export default function App() {
     }
   ]);
 
-  console.log(tasks)
+  console.log(tasks.length)
 
   function addTask() {
     const newTask = {
@@ -42,7 +42,13 @@ export default function App() {
 
   return (
     <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'center' }} style={styles.container}>
-      <TodoList tasks={tasks} setTasks={setTasks} />
+      {tasks.length < 1 ?
+        <></>
+        :
+        <>
+          <TodoList tasks={tasks} setTasks={setTasks} />
+        </>
+      }
       <View style={styles.addTaskContainer}>
         <TextInput
           value={title}
@@ -54,10 +60,14 @@ export default function App() {
           autoFocus={false}
         />
       </View>
-
       <Pressable onPress={addTask} style={[styles.addButton, !canAddTask ? styles.disabled : {}]} disabled={!canAddTask}>
         <Text style={styles.addText}>Add Task</Text>
       </Pressable>
+
+
+
+
+
 
     </ScrollView>
   )
@@ -94,6 +104,6 @@ const styles = StyleSheet.create({
   },
   disabled: {
     backgroundColor: '#EA8663',
-    opacity:0.3
+    opacity: 0.3
   }
 })
